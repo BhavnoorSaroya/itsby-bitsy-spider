@@ -13,3 +13,15 @@ config_version=5
 config/name="itsby-bitsy-spider"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Rain="*res://FluidSim/rain.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-box2d/plugin.cfg")
+
+[physics]
+
+2d/physics_engine="Box2D"
