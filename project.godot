@@ -11,8 +11,10 @@ config_version=5
 [application]
 
 config/name="itsby-bitsy-spider"
+run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
 
 [autoload]
 
@@ -25,3 +27,9 @@ enabled=PackedStringArray("res://addons/godot-box2d/plugin.cfg")
 [physics]
 
 2d/physics_engine="Box2D"
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=720
+
