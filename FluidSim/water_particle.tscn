@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlw8y8ilhqtee"]
+
+[ext_resource type="Script" path="res://FluidSim/water_particle.gd" id="1_k5q6p"]
+[ext_resource type="Texture2D" uid="uid://bxjm2idpcojth" path="res://FluidSim/water_particle.png" id="2_rmwai"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gmlkn"]
+friction = 0.0
+bounce = 0.1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tp3ak"]
+radius = 16.1245
+
+[node name="WaterParticle" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_gmlkn")
+gravity_scale = 2.0
+script = ExtResource("1_k5q6p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rmwai")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tp3ak")
