@@ -8,21 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://mybu5ck2xs2l" path="res://tileset.png" id="5_6vg20"]
 [ext_resource type="Texture2D" uid="uid://bla0lu55dlkmf" path="res://bug.png" id="7_vbhoq"]
 
-[sub_resource type="Animation" id="Animation_qw1a8"]
-resource_name = "fade_to_normal"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.176471, 0.176471, 0.176471, 0.690196), Color(0.176471, 0.176471, 0.176471, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_waxto"]
 length = 0.001
 tracks/0/type = "value"
@@ -50,8 +35,8 @@ tracks/1/keys = {
 "values": [-80.0]
 }
 
-[sub_resource type="Animation" id="Animation_cxx1c"]
-resource_name = "normal_to_dark"
+[sub_resource type="Animation" id="Animation_qw1a8"]
+resource_name = "fade_to_normal"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -62,7 +47,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.176471, 0.176471, 0.176471, 0), Color(0.176471, 0.176471, 0.176471, 0.690196)]
+"values": [Color(0.176471, 0.176471, 0.176471, 0.690196), Color(0.176471, 0.176471, 0.176471, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_1ckul"]
@@ -78,6 +63,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [-80.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_cxx1c"]
+resource_name = "normal_to_dark"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.176471, 0.176471, 0.176471, 0), Color(0.176471, 0.176471, 0.176471, 0.690196)]
 }
 
 [sub_resource type="Animation" id="Animation_r8hpm"]
@@ -265,6 +265,9 @@ position = Vector2(9, -1469)
 [node name="Timer" type="Timer" parent="CharacterBody2D"]
 wait_time = 30.0
 autostart = true
+
+[node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D"]
+position = Vector2(-558, -611)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(1, 0)
