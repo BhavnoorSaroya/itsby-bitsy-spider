@@ -11,5 +11,4 @@ script = ExtResource("1_kefgd")
 script = ExtResource("1_amuhx")
 
 [node name="WaterParticle" parent="WaterGen" instance=ExtResource("2_5syow")]
-
-[node name="WaterColor" type="Sprite2D" parent="."]
+visible = false

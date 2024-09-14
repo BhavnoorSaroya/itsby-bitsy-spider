@@ -15,10 +15,14 @@ run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
-
 [autoload]
 
 Rain="*res://FluidSim/rain.gd"
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=720
 
 [editor_plugins]
 
@@ -27,9 +31,3 @@ enabled=PackedStringArray("res://addons/godot-box2d/plugin.cfg")
 [physics]
 
 2d/physics_engine="Box2D"
-
-[display]
-
-window/size/viewport_width=1080
-window/size/viewport_height=720
-

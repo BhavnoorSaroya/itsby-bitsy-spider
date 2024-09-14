@@ -11,9 +11,11 @@ bounce = 0.1
 radius = 16.1245
 
 [node name="WaterParticle" type="RigidBody2D"]
+position = Vector2(240, 53)
 physics_material_override = SubResource("PhysicsMaterial_gmlkn")
 gravity_scale = 2.0
 script = ExtResource("1_k5q6p")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_rmwai")

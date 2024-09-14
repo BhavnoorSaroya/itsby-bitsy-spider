@@ -6,6 +6,7 @@ var spawn_timer = 0
 var water_particles = []
 var spawn_time = 1.0
 
+
 func create_particle():
 	var particle_texture = $WaterParticle/Sprite2D.texture
 	var ps = PhysicsServer2D
@@ -44,13 +45,14 @@ func create_particle():
 	#add the texture to the canvas item
 	vs.canvas_item_add_texture_rect(water_particle,rect,particle_texture)
 	#set the texture color to pink
-	vs.canvas_item_set_self_modulate(water_particle,Color("ff00ff"))
+	vs.canvas_item_set_self_modulate(water_particle,Color("395879"))
 	#add RID pair to array
 	water_particles.append([water_col,water_particle])
 	
 func _physics_process(delta):
+	
 	#add particles while less than max amount set and timer < 0
-	if spawn_timer < 0 and particle_count < max_water_particles:
+	if spawn_timer < 0 and particle_count < max_water_particles and Rain.start:
 		create_particle()
 		particle_count += 1
 		Rain.total_water_particles += 1
@@ -62,7 +64,7 @@ func _physics_process(delta):
 		trans.origin = trans.origin - global_position
 		RenderingServer.canvas_item_set_transform(col[1],trans)
 		#Delete particles if Y position > than 1500. 2D y down is positive
-		if trans.origin.y > 1500:
+		if trans.origin.y > 1900:
 			#remove RIDs
 			PhysicsServer2D.free_rid(col[0])
 			RenderingServer.free_rid(col[1])
