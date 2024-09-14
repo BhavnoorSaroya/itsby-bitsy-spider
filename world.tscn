@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b0k73epmrluo7"]
+[gd_scene load_steps=18 format=3 uid="uid://b0k73epmrluo7"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_5gwao"]
 [ext_resource type="Script" path="res://character_body_2d.gd" id="2_48486"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://8y5ingrfor0w" path="res://icon.svg" id="3_usyxv"]
 [ext_resource type="PackedScene" uid="uid://mg2q2tkoob2i" path="res://FluidSim/rain.tscn" id="4_gjuan"]
 [ext_resource type="Texture2D" uid="uid://mybu5ck2xs2l" path="res://tileset.png" id="5_6vg20"]
+[ext_resource type="Texture2D" uid="uid://bla0lu55dlkmf" path="res://bug.png" id="7_vbhoq"]
 
 [sub_resource type="Animation" id="Animation_qw1a8"]
 resource_name = "fade_to_normal"
@@ -211,6 +212,9 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_dumtp")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_phmtc"]
+radius = 26.8328
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_5gwao")
 
@@ -267,6 +271,16 @@ position = Vector2(1, 0)
 tile_set = SubResource("TileSet_5dxyk")
 format = 2
 layer_0/tile_data = PackedInt32Array(655366, 0, 1, 655367, 65536, 1, 655368, 65536, 1, 655369, 65536, 1, 655370, 65536, 1, 655371, 131072, 1, 720902, 0, 2, 786438, 0, 2, 851974, 0, 2, 917510, 0, 2, 983046, 0, 3, 720903, 65536, 2, 720904, 65536, 2, 720905, 65536, 2, 720906, 65536, 2, 786439, 65536, 2, 786440, 65536, 2, 786441, 65536, 2, 786442, 65536, 2, 851978, 65536, 2, 851977, 65536, 2, 851976, 65536, 2, 851975, 65536, 2, 917511, 65536, 2, 917512, 65536, 2, 917513, 65536, 2, 917514, 65536, 2, 983047, 65536, 3, 983048, 65536, 3, 983049, 65536, 3, 983050, 65536, 3, 983051, 131072, 3, 917515, 131072, 2, 851979, 131072, 2, 786443, 131072, 2, 720907, 131072, 2)
+
+[node name="bug_collectible" type="StaticBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="bug_collectible"]
+texture = ExtResource("7_vbhoq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bug_collectible"]
+position = Vector2(3, -4)
+shape = SubResource("CircleShape2D_phmtc")
 
 [connection signal="timeout" from="Rain_screen/Timer" to="." method="_on_rain_stop_timeout"]
 [connection signal="timeout" from="Rain_screen/music_off" to="." method="_on_music_off_timeout"]
